@@ -11,12 +11,8 @@ import {
   Check,
   Send,
   Clock,
-  Globe,
   Zap,
-  Code2,
-  ShieldCheck,
   CheckCircle2,
-  Layers,
   ChevronDown,
   Terminal
 } from "lucide-react";
@@ -28,13 +24,6 @@ const projectTypes = [
   { id: "portal", label: "Community & Eco-Tourism", desc: "High-retention platforms like Ijero Hikers with interactive maps" },
   { id: "design-code", label: "Figma to Code", desc: "Pixel-perfect, accessible Tailwind & Motion interfaces" },
   { id: "role", label: "Contract / Remote Role", desc: "High-impact frontend engineering or full-stack contributions" }
-];
-
-const timelines = [
-  "Rapid Sprint (1–2 weeks)",
-  "Full MVP Build (3–4 weeks)",
-  "Ongoing Engineering",
-  "Flexible / Scoping"
 ];
 
 const faqs = [
@@ -58,7 +47,6 @@ const faqs = [
 
 export function ContactSection() {
   const [selectedType, setSelectedType] = useState<string>("web3");
-  const [selectedTimeline, setSelectedTimeline] = useState<string>("Rapid Sprint (1–2 weeks)");
   const [senderName, setSenderName] = useState<string>("");
   const [senderContact, setSenderContact] = useState<string>("");
   const [projectBrief, setProjectBrief] = useState<string>("");
@@ -105,7 +93,6 @@ export function ContactSection() {
       ``,
       `I'm interested in collaborating with you on a project:`,
       `• Project Type: ${activeTypeObj.label}`,
-      `• Timeline Target: ${selectedTimeline}`,
       `• From: ${senderName.trim() || "[Name not specified]"}`,
       `• Contact / Handle: ${senderContact.trim() || "[Not specified]"}`,
       ``,
@@ -131,27 +118,27 @@ export function ContactSection() {
   };
 
   return (
-    <section id="contact" className="relative overflow-hidden border-t border-white/[.06] bg-[#04060c] py-28 lg:py-36">
+    <section id="contact" className="relative overflow-hidden border-t border-white/[.06] bg-[#04060c] py-16 sm:py-20 lg:py-24">
       {/* Background ambient radial gradients */}
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_20%,rgba(59,130,246,0.08),transparent_55%)]" />
-      <div className="pointer-events-none absolute bottom-0 left-1/2 -translate-x-1/2 h-[350px] w-[800px] bg-purple-600/5 blur-[140px]" />
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_20%,rgba(59,130,246,0.07),transparent_55%)]" />
+      <div className="pointer-events-none absolute bottom-0 left-1/2 -translate-x-1/2 h-[300px] w-[700px] bg-purple-600/5 blur-[120px]" />
 
-      <div className="relative mx-auto max-w-7xl px-5 lg:px-8 space-y-20">
+      <div className="relative mx-auto max-w-7xl px-5 lg:px-8 space-y-12 sm:space-y-16">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto space-y-4">
+        <div className="text-center max-w-3xl mx-auto space-y-3.5">
           <div className="inline-flex items-center gap-2 rounded-full border border-blue-400/25 bg-blue-500/10 px-3.5 py-1 text-xs font-mono text-blue-300">
-            <Sparkles size={13} className="text-blue-300" /> 08 / CONTACT & ENGAGEMENT
+            <Sparkles size={13} className="text-blue-300" /> 07 / CONTACT & ENGAGEMENT
           </div>
-          <h2 className="text-4xl font-semibold tracking-[-.03em] sm:text-6xl text-white">
+          <h2 className="text-3xl font-semibold tracking-[-.03em] sm:text-5xl lg:text-6xl text-white">
             Have something <br className="hidden sm:inline" />
             <span className="text-gradient">worth building?</span>
           </h2>
-          <p className="text-base sm:text-lg leading-relaxed text-white/55 max-w-2xl mx-auto">
+          <p className="text-sm sm:text-base leading-relaxed text-white/60 max-w-2xl mx-auto">
             Let&apos;s turn the idea into something people can actually use. Whether you need an end-to-end Web3 interface, a production MVP shipped in two weeks, or an engineering collaborator, I&apos;m ready to build.
           </p>
 
           {/* Quick Availability Strip */}
-          <div className="pt-3 flex flex-wrap items-center justify-center gap-3 sm:gap-6 text-xs font-mono text-white/60">
+          <div className="pt-2 flex flex-wrap items-center justify-center gap-3 sm:gap-5 text-xs font-mono text-white/60">
             <div className="flex items-center gap-2 rounded-full border border-emerald-400/30 bg-emerald-500/10 px-3.5 py-1 text-emerald-300">
               <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
               <span>Available for New Projects & Contracts</span>
@@ -168,10 +155,10 @@ export function ContactSection() {
         </div>
 
         {/* 1. INTERACTIVE PROJECT INQUIRY WORKBENCH */}
-        <div className="rounded-3xl border border-white/15 bg-gradient-to-b from-[#0a0f1d] via-[#070b16] to-[#04060c] p-6 sm:p-10 shadow-2xl space-y-8">
-          <div>
-            <div className="flex items-center justify-between text-xs font-mono text-white/40 mb-2">
-              <span className="text-blue-300">INTERACTIVE PROJECT SPEC COMPOSER</span>
+        <div className="rounded-3xl border border-white/15 bg-gradient-to-b from-[#0a0f1d] via-[#070b16] to-[#04060c] p-6 sm:p-8 lg:p-9 shadow-2xl space-y-6">
+          <div className="border-b border-white/[.07] pb-4">
+            <div className="flex items-center justify-between text-xs font-mono text-white/40 mb-1.5">
+              <span className="text-blue-300">PROJECT SPEC COMPOSER</span>
               <span>1-CLICK BRIEF BUILDER</span>
             </div>
             <h3 className="text-xl sm:text-2xl font-semibold text-white">
@@ -183,11 +170,11 @@ export function ContactSection() {
           </div>
 
           {/* Step 1: Project Type Pills */}
-          <div className="space-y-3">
+          <div className="space-y-2.5">
             <label className="text-xs font-mono text-white/60 uppercase tracking-wider block">
               1. What type of project are you building?
             </label>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2.5 sm:gap-3">
               {projectTypes.map((pt) => {
                 const isSelected = selectedType === pt.id;
                 return (
@@ -218,63 +205,37 @@ export function ContactSection() {
             </div>
           </div>
 
-          {/* Step 2: Target Timeline & Sender Info */}
-          <div className="grid gap-6 md:grid-cols-2 pt-2">
-            {/* Timeline selector */}
-            <div className="space-y-3">
-              <label className="text-xs font-mono text-white/60 uppercase tracking-wider block">
-                2. Target Timeline
-              </label>
-              <div className="grid grid-cols-2 gap-2">
-                {timelines.map((t) => (
-                  <button
-                    key={t}
-                    type="button"
-                    onClick={() => setSelectedTimeline(t)}
-                    className={`rounded-xl px-3 py-2 text-xs font-mono transition text-center border ${
-                      selectedTimeline === t
-                        ? "border-emerald-400/80 bg-emerald-500/20 text-emerald-200 font-semibold"
-                        : "border-white/10 bg-white/[.02] text-white/60 hover:text-white"
-                    }`}
-                  >
-                    {t}
-                  </button>
-                ))}
-              </div>
-            </div>
-
-            {/* Sender Name & Contact Handle */}
-            <div className="space-y-3">
-              <label className="text-xs font-mono text-white/60 uppercase tracking-wider block">
-                3. Your Name & Contact Channel
-              </label>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                <input
-                  type="text"
-                  placeholder="Your Name / Team"
-                  value={senderName}
-                  onChange={(e) => setSenderName(e.target.value)}
-                  className="rounded-xl border border-white/10 bg-black/50 px-3.5 py-2.5 text-xs text-white placeholder-white/30 focus:border-blue-400 focus:outline-none transition"
-                />
-                <input
-                  type="text"
-                  placeholder="Email or X / Telegram Handle"
-                  value={senderContact}
-                  onChange={(e) => setSenderContact(e.target.value)}
-                  className="rounded-xl border border-white/10 bg-black/50 px-3.5 py-2.5 text-xs text-white placeholder-white/30 focus:border-blue-400 focus:outline-none transition"
-                />
-              </div>
+          {/* Step 2: Sender Name & Contact Handle */}
+          <div className="space-y-2.5">
+            <label className="text-xs font-mono text-white/60 uppercase tracking-wider block">
+              2. Your Name & Contact Channel
+            </label>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <input
+                type="text"
+                placeholder="Your Name / Organization"
+                value={senderName}
+                onChange={(e) => setSenderName(e.target.value)}
+                className="rounded-xl border border-white/10 bg-black/50 px-3.5 py-2.5 text-xs text-white placeholder-white/30 focus:border-blue-400 focus:outline-none transition"
+              />
+              <input
+                type="text"
+                placeholder="Your Email or X / Telegram Handle"
+                value={senderContact}
+                onChange={(e) => setSenderContact(e.target.value)}
+                className="rounded-xl border border-white/10 bg-black/50 px-3.5 py-2.5 text-xs text-white placeholder-white/30 focus:border-blue-400 focus:outline-none transition"
+              />
             </div>
           </div>
 
-          {/* Step 3: Optional Brief Details */}
+          {/* Step 3: Brief Notes */}
           <div className="space-y-2">
             <label className="text-xs font-mono text-white/60 uppercase tracking-wider block">
-              4. Brief Project Notes (Optional)
+              3. Project Vision & Notes (Optional)
             </label>
             <textarea
               rows={3}
-              placeholder="Share a short summary of the product vision, reference links, or target features..."
+              placeholder="Share a short summary of what you are aiming to build, key features, or reference links..."
               value={projectBrief}
               onChange={(e) => setProjectBrief(e.target.value)}
               className="w-full rounded-2xl border border-white/10 bg-black/50 p-3.5 text-xs text-white placeholder-white/30 focus:border-blue-400 focus:outline-none transition leading-relaxed resize-none"
@@ -282,7 +243,7 @@ export function ContactSection() {
           </div>
 
           {/* Live Generated Spec Card & Action Buttons */}
-          <div className="rounded-2xl border border-white/10 bg-black/60 p-5 space-y-4">
+          <div className="rounded-2xl border border-white/10 bg-black/60 p-4 sm:p-5 space-y-3.5">
             <div className="flex items-center justify-between text-xs font-mono text-white/40">
               <div className="flex items-center gap-2">
                 <Terminal size={14} className="text-emerald-400" />
@@ -291,15 +252,15 @@ export function ContactSection() {
               <span className="text-[11px] text-blue-300">Ready to dispatch</span>
             </div>
 
-            <pre className="font-mono text-xs text-blue-200/90 bg-[#070b14] p-4 rounded-xl border border-white/[.08] overflow-x-auto leading-relaxed whitespace-pre-wrap">
+            <pre className="font-mono text-xs text-blue-200/90 bg-[#070b14] p-3.5 sm:p-4 rounded-xl border border-white/[.08] overflow-x-auto leading-relaxed whitespace-pre-wrap">
               <code>{generateBriefText()}</code>
             </pre>
 
             {/* Launch / Action Buttons */}
-            <div className="flex flex-wrap items-center gap-3 pt-2">
+            <div className="flex flex-wrap items-center gap-3 pt-1">
               <a
                 href={getMailtoUrl()}
-                className="inline-flex items-center gap-2 rounded-xl bg-white hover:bg-slate-200 px-6 py-3 text-xs sm:text-sm font-semibold text-black transition shadow-lg shadow-white/10"
+                className="inline-flex items-center gap-2 rounded-xl bg-white hover:bg-slate-200 px-5 sm:px-6 py-2.5 sm:py-3 text-xs sm:text-sm font-semibold text-black transition shadow-lg shadow-white/10"
               >
                 <Send size={15} />
                 <span>Launch in Email Client</span>
@@ -309,7 +270,7 @@ export function ContactSection() {
               <button
                 type="button"
                 onClick={handleCopyBrief}
-                className="inline-flex items-center gap-2 rounded-xl border border-white/15 bg-white/[.04] hover:bg-white/[.08] px-5 py-3 text-xs sm:text-sm font-mono text-white/90 transition"
+                className="inline-flex items-center gap-2 rounded-xl border border-white/15 bg-white/[.04] hover:bg-white/[.08] px-4 sm:px-5 py-2.5 sm:py-3 text-xs sm:text-sm font-mono text-white/90 transition"
               >
                 {copiedBrief ? (
                   <>
@@ -327,12 +288,12 @@ export function ContactSection() {
               <button
                 type="button"
                 onClick={handleCopyEmail}
-                className="inline-flex items-center gap-2 rounded-xl border border-white/10 bg-transparent hover:bg-white/5 px-4 py-3 text-xs font-mono text-white/60 hover:text-white transition"
+                className="inline-flex items-center gap-2 rounded-xl border border-white/10 bg-transparent hover:bg-white/5 px-3.5 sm:px-4 py-2.5 sm:py-3 text-xs font-mono text-white/60 hover:text-white transition"
               >
                 {copiedEmail ? (
                   <span className="text-emerald-400">Email Copied!</span>
                 ) : (
-                  <span>Copy raw email address</span>
+                  <span>Copy raw email</span>
                 )}
               </button>
             </div>
@@ -340,20 +301,20 @@ export function ContactSection() {
         </div>
 
         {/* 2. DIRECT CONNECTIVITY CARDS */}
-        <div className="grid gap-4 sm:grid-cols-3">
+        <div className="grid gap-3.5 sm:grid-cols-3">
           {/* Email Direct */}
-          <div className="rounded-2xl border border-white/10 bg-white/[.02] p-6 hover:border-white/20 transition flex flex-col justify-between space-y-4">
-            <div className="space-y-2">
-              <div className="h-10 w-10 rounded-xl border border-blue-400/30 bg-blue-500/10 flex items-center justify-center text-blue-300">
-                <Mail size={18} />
+          <div className="rounded-2xl border border-white/10 bg-white/[.02] p-5 sm:p-6 hover:border-white/20 transition flex flex-col justify-between space-y-3.5">
+            <div className="space-y-1.5">
+              <div className="h-9 w-9 rounded-xl border border-blue-400/30 bg-blue-500/10 flex items-center justify-center text-blue-300 mb-2">
+                <Mail size={16} />
               </div>
-              <div className="text-xs font-mono text-white/40 uppercase">Direct Inbox</div>
-              <h4 className="text-base font-semibold text-white">Email Address</h4>
+              <div className="text-[11px] font-mono text-white/40 uppercase">Direct Inbox</div>
+              <h4 className="text-sm sm:text-base font-semibold text-white">Email Address</h4>
               <p className="text-xs text-white/50 leading-relaxed truncate font-mono">
                 tumininuisaacaiyegbusi@gmail.com
               </p>
             </div>
-            <div className="flex items-center gap-2 pt-2">
+            <div className="flex items-center gap-2 pt-1">
               <a
                 href="mailto:tumininuisaacaiyegbusi@gmail.com"
                 className="flex-1 rounded-xl bg-white/10 hover:bg-white/20 py-2 text-center text-xs font-mono text-white transition"
@@ -372,13 +333,13 @@ export function ContactSection() {
           </div>
 
           {/* GitHub Direct */}
-          <div className="rounded-2xl border border-white/10 bg-white/[.02] p-6 hover:border-white/20 transition flex flex-col justify-between space-y-4">
-            <div className="space-y-2">
-              <div className="h-10 w-10 rounded-xl border border-purple-400/30 bg-purple-500/10 flex items-center justify-center text-purple-300">
-                <Github size={18} />
+          <div className="rounded-2xl border border-white/10 bg-white/[.02] p-5 sm:p-6 hover:border-white/20 transition flex flex-col justify-between space-y-3.5">
+            <div className="space-y-1.5">
+              <div className="h-9 w-9 rounded-xl border border-purple-400/30 bg-purple-500/10 flex items-center justify-center text-purple-300 mb-2">
+                <Github size={16} />
               </div>
-              <div className="text-xs font-mono text-white/40 uppercase">Public Code</div>
-              <h4 className="text-base font-semibold text-white">GitHub Repositories</h4>
+              <div className="text-[11px] font-mono text-white/40 uppercase">Public Code</div>
+              <h4 className="text-sm sm:text-base font-semibold text-white">GitHub Repositories</h4>
               <p className="text-xs text-white/50 leading-relaxed font-mono">
                 github.com/Isac-James
               </p>
@@ -395,13 +356,13 @@ export function ContactSection() {
           </div>
 
           {/* X / Twitter Direct */}
-          <div className="rounded-2xl border border-white/10 bg-white/[.02] p-6 hover:border-white/20 transition flex flex-col justify-between space-y-4">
-            <div className="space-y-2">
-              <div className="h-10 w-10 rounded-xl border border-emerald-400/30 bg-emerald-500/10 flex items-center justify-center text-emerald-300">
-                <Sparkles size={18} />
+          <div className="rounded-2xl border border-white/10 bg-white/[.02] p-5 sm:p-6 hover:border-white/20 transition flex flex-col justify-between space-y-3.5">
+            <div className="space-y-1.5">
+              <div className="h-9 w-9 rounded-xl border border-emerald-400/30 bg-emerald-500/10 flex items-center justify-center text-emerald-300 mb-2">
+                <Sparkles size={16} />
               </div>
-              <div className="text-xs font-mono text-white/40 uppercase">Social & DMs</div>
-              <h4 className="text-base font-semibold text-white">X / Twitter</h4>
+              <div className="text-[11px] font-mono text-white/40 uppercase">Social & DMs</div>
+              <h4 className="text-sm sm:text-base font-semibold text-white">X / Twitter</h4>
               <p className="text-xs text-white/50 leading-relaxed font-mono">
                 @0mo_ayegbusi
               </p>
@@ -419,14 +380,14 @@ export function ContactSection() {
         </div>
 
         {/* 3. WORKING WITH ME: 3 GUARANTEES */}
-        <div className="rounded-3xl border border-white/[.08] bg-white/[.01] p-6 sm:p-8 space-y-6">
+        <div className="rounded-3xl border border-white/[.08] bg-white/[.01] p-5 sm:p-7 space-y-4">
           <div className="flex items-center justify-between text-xs font-mono text-white/40 border-b border-white/[.06] pb-3">
             <span>ENGINEERING COMMITMENTS</span>
             <span className="text-emerald-400">WHAT WORKING TOGETHER LOOKS LIKE</span>
           </div>
 
-          <div className="grid gap-6 md:grid-cols-3">
-            <div className="space-y-2">
+          <div className="grid gap-5 md:grid-cols-3">
+            <div className="space-y-1.5">
               <div className="flex items-center gap-2 text-emerald-300 text-sm font-semibold">
                 <CheckCircle2 size={16} /> Rapid First Artifact
               </div>
@@ -435,7 +396,7 @@ export function ContactSection() {
               </p>
             </div>
 
-            <div className="space-y-2">
+            <div className="space-y-1.5">
               <div className="flex items-center gap-2 text-blue-300 text-sm font-semibold">
                 <CheckCircle2 size={16} /> Strict Type Safety & Clean Git
               </div>
@@ -444,7 +405,7 @@ export function ContactSection() {
               </p>
             </div>
 
-            <div className="space-y-2">
+            <div className="space-y-1.5">
               <div className="flex items-center gap-2 text-purple-300 text-sm font-semibold">
                 <CheckCircle2 size={16} /> Direct Builder Communication
               </div>
@@ -456,8 +417,8 @@ export function ContactSection() {
         </div>
 
         {/* 4. FREQUENTLY ASKED QUESTIONS */}
-        <div className="space-y-4 max-w-3xl mx-auto pt-4">
-          <div className="text-center space-y-1 mb-6">
+        <div className="space-y-3.5 max-w-3xl mx-auto pt-2">
+          <div className="text-center space-y-1 mb-4">
             <div className="text-xs font-mono text-blue-300 uppercase tracking-wider">
               QUICK ANSWERS
             </div>
@@ -466,7 +427,7 @@ export function ContactSection() {
             </h4>
           </div>
 
-          <div className="space-y-2.5">
+          <div className="space-y-2">
             {faqs.map((faq, idx) => {
               const isOpen = activeFaq === idx;
               return (
@@ -477,7 +438,7 @@ export function ContactSection() {
                   <button
                     type="button"
                     onClick={() => setActiveFaq(isOpen ? null : idx)}
-                    className="w-full flex items-center justify-between p-4 sm:p-5 text-left text-xs sm:text-sm font-medium text-white hover:text-blue-200 transition"
+                    className="w-full flex items-center justify-between p-4 text-left text-xs sm:text-sm font-medium text-white hover:text-blue-200 transition"
                   >
                     <span>{faq.q}</span>
                     <ChevronDown
@@ -495,7 +456,7 @@ export function ContactSection() {
                         exit={{ height: 0, opacity: 0 }}
                         transition={{ duration: 0.2 }}
                       >
-                        <div className="px-4 pb-5 sm:px-5 sm:pb-6 text-xs text-white/60 leading-relaxed border-t border-white/[.06] pt-3">
+                        <div className="px-4 pb-4 text-xs text-white/60 leading-relaxed border-t border-white/[.06] pt-3">
                           {faq.a}
                         </div>
                       </motion.div>

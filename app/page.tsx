@@ -37,6 +37,9 @@ import { ProjectModal, type ProjectData } from "../components/ProjectModal";
 import { AiBuildingSection } from "../components/AiBuildingSection";
 import { AboutSection } from "../components/AboutSection";
 import { ContactSection } from "../components/ContactSection";
+import { StackSection } from "../components/StackSection";
+import { CapabilitiesSection } from "../components/CapabilitiesSection";
+import { LabSection } from "../components/LabSection";
 
 const projects: ProjectData[] = [
   {
@@ -200,21 +203,7 @@ const ijeroPhotos = [
   }
 ];
 
-const stack = {
-  "FRONTEND": ["JavaScript", "TypeScript", "React", "Next.js", "HTML", "CSS", "Tailwind CSS"],
-  "WEB3": ["Wallet integration", "EVM fundamentals", "wagmi", "viem", "ethers.js", "Smart contract interaction", "dApp development"],
-  "AI BUILDING": ["AI-assisted coding", "Rapid prototyping", "Prompt engineering", "AI-powered product development"],
-  "TOOLS": ["Git", "GitHub", "VS Code", "Figma", "Canva"]
-};
 
-const labs = [
-  ["Wallet experiments", "EXPERIMENT"],
-  ["AI interfaces", "BUILDING"],
-  ["Trading UI explorations", "EXPERIMENT"],
-  ["Interactive motion studies", "BUILDING"],
-  ["Developer tools", "EXPERIMENT"],
-  ["Frontend prototypes", "SHIPPED"]
-];
 
 function Network() {
   const reduce = useReducedMotion();
@@ -295,13 +284,21 @@ export default function Home() {
             TUMI<span className="text-blue-300">{"//3"}</span>
           </a>
           <nav className="hidden items-center gap-7 text-sm text-white/60 md:flex">
-            {["Work", "About", "Stack", "AI Velocity", "Lab", "Contact"].map((x) => (
+            {[
+              { label: "Work", href: "#work" },
+              { label: "About", href: "#about" },
+              { label: "Stack", href: "#stack" },
+              { label: "AI Velocity", href: "#ai-building" },
+              { label: "Capabilities", href: "#capabilities" },
+              { label: "Lab", href: "#lab" },
+              { label: "Contact", href: "#contact" }
+            ].map((item) => (
               <a
-                key={x}
-                href={x === "AI Velocity" ? "#ai-building" : "#" + x.toLowerCase()}
+                key={item.label}
+                href={item.href}
                 className="transition hover:text-white whitespace-nowrap"
               >
-                {x}
+                {item.label}
               </a>
             ))}
           </nav>
@@ -321,13 +318,21 @@ export default function Home() {
         </div>
         {menu && (
           <nav className="flex flex-col gap-5 border-t border-white/10 px-5 py-6 md:hidden">
-            {["Work", "About", "Stack", "AI Velocity", "Lab", "Contact"].map((x) => (
+            {[
+              { label: "Work", href: "#work" },
+              { label: "About", href: "#about" },
+              { label: "Stack", href: "#stack" },
+              { label: "AI Velocity", href: "#ai-building" },
+              { label: "Capabilities", href: "#capabilities" },
+              { label: "Lab", href: "#lab" },
+              { label: "Contact", href: "#contact" }
+            ].map((item) => (
               <a
                 onClick={() => setMenu(false)}
-                key={x}
-                href={x === "AI Velocity" ? "#ai-building" : "#" + x.toLowerCase()}
+                key={item.label}
+                href={item.href}
               >
-                {x}
+                {item.label}
               </a>
             ))}
           </nav>
@@ -692,13 +697,13 @@ export default function Home() {
       {/* 02 / SELECTED WORK — UPGRADED & DYNAMIC */}
       <section
         id="work"
-        className="border-y border-white/[.06] bg-gradient-to-b from-white/[.01] via-white/[.025] to-transparent py-28"
+        className="border-y border-white/[.06] bg-gradient-to-b from-white/[.01] via-white/[.025] to-transparent py-16 sm:py-20 lg:py-24"
       >
         <div className="mx-auto max-w-7xl px-5 lg:px-8">
           {/* Section Header & Filter Controls */}
           <motion.div
             {...fade}
-            className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 pb-12 border-b border-white/[.07]"
+            className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 pb-8 sm:pb-10 border-b border-white/[.07]"
           >
             <div>
               <div className="flex items-center gap-2 font-mono text-xs text-blue-200/70 tracking-widest">
@@ -1138,7 +1143,7 @@ export default function Home() {
           {/* Quantitative Proof Strip */}
           <motion.div
             {...fade}
-            className="mt-14 rounded-2xl border border-white/[.08] bg-white/[.015] p-5 sm:p-6 grid grid-cols-2 md:grid-cols-4 gap-4 text-center"
+            className="mt-10 sm:mt-12 rounded-2xl border border-white/[.08] bg-white/[.015] p-5 sm:p-6 grid grid-cols-2 md:grid-cols-4 gap-4 text-center"
           >
             <div>
               <div className="font-mono text-2xl font-bold text-white">14+</div>
@@ -1160,133 +1165,17 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Stack Section */}
-      <section id="stack" className="mx-auto max-w-7xl px-5 py-28 lg:px-8">
-        <motion.div {...fade}>
-          <div className="font-mono text-xs text-blue-200/60">03 / STACK</div>
-          <h2 className="mt-4 text-4xl font-semibold tracking-tight sm:text-6xl">
-            Tools for turning ideas into interfaces.
-          </h2>
-        </motion.div>
-        <div className="mt-12 grid gap-4 sm:grid-cols-2">
-          {Object.entries(stack).map(([group, items]) => (
-            <motion.div key={group} {...fade} className="card w-full p-6">
-              <div className="mb-5 flex items-center gap-3 font-mono text-xs tracking-widest text-white/35">
-                <Code2 size={15} />
-                {group}
-              </div>
-              <div className="flex flex-wrap gap-2">
-                {items.map((x) => (
-                  <span
-                    key={x}
-                    className="rounded-xl border border-white/10 px-3 py-2 text-sm text-white/70 transition hover:-translate-y-0.5 hover:border-blue-300/30 hover:text-white"
-                  >
-                    {x}
-                  </span>
-                ))}
-              </div>
-            </motion.div>
-          ))}
-        </div>
-      </section>
+      {/* 03 / Stack Section */}
+      <StackSection />
 
       {/* 04 / AI BUILDING — INTERACTIVE VELOCITY & WORKBENCH */}
       <AiBuildingSection />
 
-      {/* Capabilities Section */}
-      <section className="mx-auto max-w-7xl px-5 py-28 lg:px-8">
-        <motion.div {...fade}>
-          <div className="font-mono text-xs text-blue-200/60">05 / CAPABILITIES</div>
-          <h2 className="mt-4 text-4xl font-semibold tracking-tight sm:text-6xl">
-            What I can build.
-          </h2>
-        </motion.div>
-        <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {[
-            ["Web3 Frontends", "Modern interfaces for blockchain products and dApps.", Boxes],
-            ["dApps", "Interactive decentralized applications with wallet connectivity.", Code2],
-            ["Web3 Dashboards", "Analytics, portfolio and protocol dashboards.", Cpu],
-            ["Eco-Tourism & Community", "High-retention portals with trail discovery & booking systems.", Mountain],
-            ["Startup MVPs", "Rapidly turning product ideas into functional prototypes.", Code2],
-            ["Landing Pages", "Premium websites for Web3 and technology startups.", Palette]
-          ].map(([t, d, I]: any) => (
-            <motion.div key={t} {...fade} className="card w-full p-6 hover:border-white/20">
-              <I size={20} className="text-blue-200/70" />
-              <h3 className="mt-7 text-xl">{t}</h3>
-              <p className="mt-2 text-sm leading-6 text-white/45">{d}</p>
-            </motion.div>
-          ))}
-        </div>
-      </section>
+      {/* 05 / Capabilities Section */}
+      <CapabilitiesSection />
 
-      {/* Lab Section */}
-      <section id="lab" className="border-y border-white/[.06] bg-white/[.015]">
-        <div className="mx-auto max-w-7xl px-5 py-28 lg:px-8">
-          <motion.div {...fade}>
-            <div className="font-mono text-xs text-blue-200/60">06 / LAB</div>
-            <h2 className="mt-4 text-4xl font-semibold tracking-tight sm:text-6xl">
-              Always experimenting.
-            </h2>
-          </motion.div>
-          <div className="mt-12 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-            {labs.map(([t, s]) => (
-              <motion.div
-                key={t}
-                {...fade}
-                className="card group flex w-full flex-col justify-between p-5"
-              >
-                <div className="flex items-center justify-between">
-                  <span className="font-mono text-[10px] tracking-widest text-white/35">
-                    {s}
-                  </span>
-                  <ArrowUpRight
-                    size={15}
-                    className="text-white/25 transition group-hover:text-white"
-                  />
-                </div>
-                <div className="mt-16 text-lg">{t}</div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Proof of Work Section */}
-      <section className="mx-auto max-w-7xl px-5 py-28 lg:px-8">
-        <motion.div {...fade} className="card glow p-7 sm:p-10">
-          <div className="font-mono text-xs tracking-widest text-blue-200/60">
-            07 / PROOF OF WORK
-          </div>
-          <div className="mt-7 grid gap-8 sm:grid-cols-3">
-            <div>
-              <div className="text-3xl font-semibold">Open source</div>
-              <p className="mt-2 text-sm text-white/40">
-                Public repositories & contributions at{" "}
-                <a
-                  href="https://github.com/Isac-James"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="text-blue-300 hover:underline"
-                >
-                  github.com/Isac-James
-                </a>
-              </p>
-            </div>
-            <div>
-              <div className="text-3xl font-semibold">Ijero Hikers</div>
-              <p className="mt-2 text-sm text-white/40">
-                Production eco-tourism platform with interactive trail mapping & expeditions.
-              </p>
-            </div>
-            <div>
-              <div className="text-3xl font-semibold">Web3 & AI</div>
-              <p className="mt-2 text-sm text-white/40">
-                EVM smart contract frontends, real-time analytics & token-gated systems.
-              </p>
-            </div>
-          </div>
-        </motion.div>
-      </section>
+      {/* 06 / Lab Section */}
+      <LabSection />
 
       {/* 08 / Contact Section */}
       <ContactSection />

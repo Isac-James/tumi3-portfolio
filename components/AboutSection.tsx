@@ -12,17 +12,13 @@ import {
   ArrowRight,
   Layers,
   Sparkles,
-  Mountain,
-  Globe,
   Compass,
   FileCode,
   Shield,
   Workflow,
   Target,
   Users,
-  Lightbulb,
-  Check,
-  Copy
+  Lightbulb
 } from "lucide-react";
 
 type IdentityLens = "builder" | "designer" | "solver";
@@ -257,7 +253,6 @@ const principles = [
 export function AboutSection() {
   const [activeLens, setActiveLens] = useState<IdentityLens>("builder");
   const [activeStage, setActiveStage] = useState<number>(0);
-  const [copiedEmail, setCopiedEmail] = useState<boolean>(false);
 
   const lens = identityLenses[activeLens];
   const Icon = lens.icon;
@@ -269,7 +264,7 @@ export function AboutSection() {
   };
 
   return (
-    <section id="about" className="relative mx-auto max-w-7xl px-5 py-28 lg:px-8">
+    <section id="about" className="relative mx-auto max-w-7xl px-5 py-16 sm:py-20 lg:py-24 lg:px-8">
       {/* Background Ambience */}
       <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
         <div className="absolute top-1/4 left-1/2 -translate-x-1/2 h-[500px] w-[700px] rounded-full bg-[radial-gradient(ellipse_at_center,rgba(56,189,248,0.06),transparent_70%)] blur-3xl" />
@@ -286,13 +281,13 @@ export function AboutSection() {
         <h2 className="mt-4 text-4xl font-semibold tracking-tight text-white sm:text-6xl lg:text-7xl">
           Builder, designer, problem solver.
         </h2>
-        <p className="mt-5 text-base sm:text-lg leading-relaxed text-white/60">
+        <p className="mt-4 text-base sm:text-lg leading-relaxed text-white/60">
           I sit at the intersection of frontend craft, intuitive product design, and next-generation decentralized technology. My goal is simple: turn complex problems into clear, fast, and beautiful digital products that people actually want to use.
         </p>
       </motion.div>
 
       {/* PART 1: THE TRIAD OF IDENTITY (INTERACTIVE LENS SELECTOR) */}
-      <motion.div {...fade} className="mt-14">
+      <motion.div {...fade} className="mt-10 sm:mt-12">
         {/* Lens Navigation Tabs */}
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-white/[.08] pb-4">
           <div className="text-xs font-mono text-white/40 uppercase tracking-wider">
@@ -555,8 +550,8 @@ export function AboutSection() {
       </motion.div>
 
       {/* PART 3: CORE GUIDING PRINCIPLES */}
-      <motion.div {...fade} className="mt-24">
-        <div className="border-b border-white/[.08] pb-6">
+      <motion.div {...fade} className="mt-14 sm:mt-16">
+        <div className="border-b border-white/[.08] pb-5">
           <div className="flex items-center gap-2 font-mono text-xs text-blue-300 tracking-wider">
             <Shield size={14} />
             <span>CORE VALUES & OPERATING STANDARDS</span>
@@ -569,88 +564,26 @@ export function AboutSection() {
           </p>
         </div>
 
-        <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-6 sm:mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {principles.map((pr) => (
             <div
               key={pr.num}
-              className="group rounded-3xl border border-white/10 bg-white/[.02] p-6 transition duration-300 hover:border-white/25 hover:bg-white/[.04] flex flex-col justify-between"
+              className="group rounded-3xl border border-white/10 bg-white/[.02] p-5 sm:p-6 transition duration-300 hover:border-white/25 hover:bg-white/[.04] flex flex-col justify-between"
             >
               <div>
-                <div className="flex items-center justify-between text-xs font-mono text-white/40 mb-4">
+                <div className="flex items-center justify-between text-xs font-mono text-white/40 mb-3">
                   <span className="text-blue-300 font-semibold">{pr.num}</span>
                   <span className="text-[10px] uppercase tracking-wider">{pr.tag}</span>
                 </div>
                 <h4 className="text-lg font-semibold text-white group-hover:text-blue-200 transition">
                   {pr.title}
                 </h4>
-                <p className="mt-3 text-xs sm:text-sm leading-relaxed text-white/60">
+                <p className="mt-2.5 text-xs sm:text-sm leading-relaxed text-white/60">
                   {pr.text}
                 </p>
               </div>
             </div>
           ))}
-        </div>
-      </motion.div>
-
-      {/* PART 4: ABOUT THE BUILDER (BIO & DIRECT CONNECTIVITY) */}
-      <motion.div
-        {...fade}
-        className="mt-20 rounded-3xl border border-white/15 bg-gradient-to-r from-blue-950/20 via-black to-purple-950/20 p-6 sm:p-10"
-      >
-        <div className="grid gap-8 lg:grid-cols-12 items-center">
-          <div className="lg:col-span-8 space-y-4">
-            <div className="flex items-center gap-2 text-xs font-mono text-emerald-300">
-              <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
-              <span>Based in Nigeria · Available Globally for Remote Roles & Contracts</span>
-            </div>
-            <h3 className="text-2xl sm:text-3xl font-semibold tracking-tight text-white">
-              Tumininu Aiyegbusi
-            </h3>
-            <p className="text-sm sm:text-base leading-relaxed text-white/70 max-w-2xl">
-              Frontend software engineer, UI/UX designer, and Web3 technologist. Passionate about empowering communities through technology, crafting high-performance interfaces, and turning bold ideas into products that make an impact.
-            </p>
-            <div className="flex flex-wrap items-center gap-4 text-xs font-mono text-white/50 pt-2">
-              <div className="flex items-center gap-1.5">
-                <Globe size={13} className="text-blue-300" /> Remote Ready
-              </div>
-              <span>·</span>
-              <div className="flex items-center gap-1.5">
-                <Zap size={13} className="text-cyan-300" /> Fast Response &lt;24h
-              </div>
-              <span>·</span>
-              <div className="flex items-center gap-1.5">
-                <Mountain size={13} className="text-emerald-300" /> Outdoor & Eco-Tourism Advocate
-              </div>
-            </div>
-          </div>
-
-          <div className="lg:col-span-4 flex flex-col gap-3">
-            <a
-              href="mailto:tumininuisaacaiyegbusi@gmail.com"
-              className="w-full rounded-2xl bg-white hover:bg-slate-200 px-5 py-3 text-center text-xs sm:text-sm font-semibold text-black transition flex items-center justify-center gap-2 shadow-lg shadow-white/10"
-            >
-              Start a Conversation <ArrowRight size={14} />
-            </a>
-            <button
-              type="button"
-              onClick={() => {
-                navigator.clipboard?.writeText("tumininuisaacaiyegbusi@gmail.com");
-                setCopiedEmail(true);
-                setTimeout(() => setCopiedEmail(false), 2500);
-              }}
-              className="w-full rounded-2xl border border-white/15 bg-white/[.04] hover:bg-white/10 px-5 py-3 text-center text-xs font-mono text-white/80 transition flex items-center justify-center gap-2"
-            >
-              {copiedEmail ? (
-                <>
-                  <Check size={14} className="text-emerald-400" /> Email Copied!
-                </>
-              ) : (
-                <>
-                  <Copy size={14} className="text-blue-300" /> Copy Direct Email
-                </>
-              )}
-            </button>
-          </div>
         </div>
       </motion.div>
     </section>

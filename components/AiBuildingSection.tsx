@@ -89,12 +89,12 @@ export function AiBuildingSection() {
   const activeStep = pipelineSteps.find((s) => s.id === activeStepId) || pipelineSteps[0];
 
   return (
-    <section id="ai-building" className="relative border-y border-white/[.06] bg-gradient-to-b from-[#06080e] via-[#080d18] to-[#05060a] py-28 overflow-hidden">
+    <section id="ai-building" className="relative border-y border-white/[.06] bg-gradient-to-b from-[#06080e] via-[#080d18] to-[#05060a] py-16 sm:py-20 lg:py-24 overflow-hidden">
       {/* Background ambient lighting */}
       <div className="pointer-events-none absolute left-1/4 top-1/4 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-blue-600/5 blur-[120px]" />
       <div className="pointer-events-none absolute right-1/4 bottom-1/4 h-[400px] w-[400px] translate-x-1/2 translate-y-1/2 rounded-full bg-purple-600/5 blur-[120px]" />
 
-      <div className="relative mx-auto max-w-7xl px-5 lg:px-8 space-y-16">
+      <div className="relative mx-auto max-w-7xl px-5 lg:px-8 space-y-10 sm:space-y-12">
         {/* Section Header */}
         <div className="grid gap-8 lg:grid-cols-12 lg:items-end">
           <div className="lg:col-span-7">
