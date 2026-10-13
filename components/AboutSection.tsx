@@ -601,7 +601,7 @@ export function AboutSection() {
           <div className="lg:col-span-8 space-y-4">
             <div className="flex items-center gap-2 text-xs font-mono text-emerald-300">
               <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
-              <span>BASED IN NIGERIA (WAT / GMT+1) · AVAILABLE GLOBALLY</span>
+              <span>Based in Nigeria · Available Globally for Remote Roles & Contracts</span>
             </div>
             <h3 className="text-2xl sm:text-3xl font-semibold tracking-tight text-white">
               Tumininu Aiyegbusi

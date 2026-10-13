@@ -36,6 +36,7 @@ import {
 import { ProjectModal, type ProjectData } from "../components/ProjectModal";
 import { AiBuildingSection } from "../components/AiBuildingSection";
 import { AboutSection } from "../components/AboutSection";
+import { ContactSection } from "../components/ContactSection";
 
 const projects: ProjectData[] = [
   {
@@ -1287,66 +1288,8 @@ export default function Home() {
         </motion.div>
       </section>
 
-      {/* Contact Section */}
-      <section id="contact" className="relative overflow-hidden border-t border-white/[.06]">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_40%,rgba(155,124,255,.10),transparent_45%)]" />
-        <div className="relative mx-auto max-w-4xl px-5 py-32 text-center lg:px-8">
-          <motion.div {...fade}>
-            <div className="font-mono text-xs tracking-[.25em] text-blue-200/60">
-              08 / CONTACT
-            </div>
-            <h2 className="mt-5 text-5xl font-semibold tracking-[-.04em] sm:text-7xl">
-              Have something worth building?
-            </h2>
-            <p className="mx-auto mt-6 max-w-xl text-lg leading-8 text-white/45">
-              Let&apos;s turn the idea into something people can actually use.
-            </p>
-            <div className="mt-9 flex flex-wrap justify-center gap-3">
-              <a
-                href="mailto:tumininuisaacaiyegbusi@gmail.com"
-                className="rounded-full bg-white px-6 py-3 text-sm font-semibold text-black transition hover:bg-slate-200"
-              >
-                Start a conversation <ArrowUpRight className="ml-1 inline" size={16} />
-              </a>
-              <a
-                href="https://github.com/Isac-James/Ijero-hikers"
-                target="_blank"
-                rel="noreferrer"
-                className="rounded-full border border-white/15 px-6 py-3 text-sm font-semibold hover:border-white/30 transition"
-              >
-                View Ijero Hikers on GitHub
-              </a>
-            </div>
-            <div className="mt-8 flex justify-center gap-5 text-white/40">
-              <a
-                href="https://github.com/Isac-James/Ijero-hikers"
-                target="_blank"
-                rel="noreferrer"
-                aria-label="GitHub"
-                className="hover:text-white transition"
-              >
-                <Github size={18} />
-              </a>
-              <a
-                href="https://x.com/0mo_ayegbusi"
-                target="_blank"
-                rel="noreferrer"
-                aria-label="X"
-                className="hover:text-white transition"
-              >
-                <Sparkles size={18} />
-              </a>
-              <a
-                href="mailto:tumininuisaacaiyegbusi@gmail.com"
-                aria-label="Email"
-                className="hover:text-white transition"
-              >
-                <Mail size={18} />
-              </a>
-            </div>
-          </motion.div>
-        </div>
-      </section>
+      {/* 08 / Contact Section */}
+      <ContactSection />
 
       {/* Footer */}
       <footer className="mx-auto flex max-w-7xl flex-col gap-3 px-5 py-8 text-xs text-white/30 sm:flex-row sm:items-center sm:justify-between lg:px-8">
